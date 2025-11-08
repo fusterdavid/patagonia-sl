@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patagonia Software Libre | Comunidad de Software Libre en la Patagonia</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+        /* Importación de fuentes y estilos base */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Lato:wght@400;700&family=Ubuntu:wght@400;700&display=swap');
+        
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            background-color: #fff;
+            line-height: 1.7em;
+            font-weight: 500;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        a {
+            color: #2ea3f2;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            opacity: 0.7;
+            transition: all 0.4s ease-in-out;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
+            padding-bottom: 10px;
+            line-height: 1em;
+            font-weight: 500;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        
+        h1 {
+            font-size: 30px;
+        }
+        
+        h2 {
+            font-size: 26px;
+        }
+        
+        h3 {
+            font-size: 22px;
+        }
+        
+        p {
+            padding-bottom: 1em;
+        }
+        
+        .container {
+            width: 80%;
+            max-width: 1080px;
+            margin: auto;
+            position: relative;
+        }
+        
+        .clearfix:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+        }
+        
+        /* Header */
+        #main-header {
+            background-color: #fff;
+            width: 100%;
+            box-shadow: 0 1px 0 rgba(0,0,0,.1);
+            position: relative;
+            z-index: 99999;
+            line-height: 23px;
+            font-weight: 500;
+            top: 0;
+        }
+        
+        .logo_container {
+            padding: 15px 0;
+            text-align: center;
+        }
+        
+        #logo {
+            max-height: 60px;
+            width: auto;
+        }
+        
+        /* Navegación */
+        #et-top-navigation {
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        #top-menu {
+            list-style: none;
+            display: inline-block;
+        }
+        
+        #top-menu li {
+            display: inline-block;
+            padding: 0 15px;
+        }
+        
+        #top-menu li a {
+            color: rgba(0,0,0,0.6);
+            font-weight: 600;
+            font-size: 14px;
+            transition: opacity 0.4s ease-in-out;
+        }
+        
+        /* Secciones */
+        .et_pb_section {
+            position: relative;
+            background-color: #fff;
+            background-position: 50%;
+            background-size: cover;
+            padding: 4% 0;
+        }
+        
+        .et_pb_row {
+            width: 80%;
+            max-width: 1080px;
+            margin: auto;
+            position: relative;
+            padding: 2% 0;
+        }
+        
+        .et_pb_column {
+            float: left;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .et_pb_column_4_4 {
+            width: 100%;
+        }
+        
+        .et_pb_column_3_5 {
+            width: 60%;
+        }
+        
+        .et_pb_column_2_5 {
+            width: 40%;
+        }
+        
+        .et_pb_column_1_4 {
+            width: 25%;
+        }
+        
+        .et_pb_column_1_3 {
+            width: 33.33%;
+        }
+        
+        .et_pb_column_2_3 {
+            width: 66.66%;
+        }
+        
+        .et_pb_column_1_2 {
+            width: 50%;
+        }
+        
+        /* Módulos */
+        .et_pb_text {
+            word-wrap: break-word;
+        }
+        
+        .et_pb_text_align_center {
+            text-align: center;
+        }
+        
+        .et_pb_text_align_left {
+            text-align: left;
+        }
+        
+        .et_pb_image {
+            text-align: center;
+        }
+        
+        .et_pb_image img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .et_pb_button {
+            display: inline-block;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 0.3em 1em;
+            line-height: 1.7em !important;
+            background-color: transparent;
+            border: 2px solid;
+            border-radius: 3px;
+            transition-duration: .2s;
+            transition-property: all !important;
+            position: relative;
+            color: #2ea3f2;
+        }
+        
+        .et_pb_button:hover {
+            border: 2px solid transparent;
+            padding: 0.3em 2em 0.3em 0.7em;
+            background-color: rgba(0,0,0,.05);
+        }
+        
+        .et_pb_button_alignment_center {
+            text-align: center;
+        }
+        
+        .et_pb_blog {
+            margin-bottom: 30px;
+        }
+        
+        .et_pb_post {
+            margin-bottom: 30px;
+        }
+        
+        .et_pb_post .entry-title {
+            margin-bottom: 10px;
+        }
+        
+        .et_pb_post .post-meta {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        .et_pb_post .post-content {
+            margin-bottom: 15px;
+        }
+        
+        .more-link {
+            font-weight: 700;
+            color: #2ea3f2;
+        }
+        
+        /* Footer */
+        #main-footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 0 20px;
+        }
+        
+        #footer-widgets {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-widget {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-widget h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .footer-widget ul {
+            list-style: none;
+        }
+        
+        .footer-widget li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-widget a {
+            color: #ccc;
+        }
+        
+        .footer-widget a:hover {
+            color: #fff;
+        }
+        
+        #footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 980px) {
+            .et_pb_column {
+                width: 100% !important;
+                margin-bottom: 30px;
+            }
+            
+            #top-menu li {
+                display: block;
+                padding: 10px 0;
+            }
+        }
+        
+        /* Animaciones */
+        .et_animated {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .et-waypoint {
+            opacity: 1;
+        }
+        
+        /* Colores y temas */
+        .et_pb_bg_layout_dark {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .et_pb_bg_layout_dark h1,
+        .et_pb_bg_layout_dark h2,
+        .et_pb_bg_layout_dark h3,
+        .et_pb_bg_layout_dark h4,
+        .et_pb_bg_layout_dark h5,
+        .et_pb_bg_layout_dark h6 {
+            color: #fff !important;
+        }
+        
+        .et_pb_with_background {
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-container">
+        <header id="main-header">
+            <div class="container clearfix">
+                <div class="logo_container">
+                    <a href="#">
+                        <img src="https://via.placeholder.com/200x60/2ea3f2/ffffff?text=Patagonia+Software+Libre" alt="Patagonia Software Libre" id="logo" />
+                    </a>
+                </div>
+                <div id="et-top-navigation">
+                    <nav>
+                        <ul id="top-menu">
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Comunidad</a></li>
+                            <li><a href="#">Proyectos</a></li>
+                            <li><a href="#">Eventos</a></li>
+                            <li><a href="#">Recursos</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div id="main-content">
+            <article>
+                <div class="entry-content">
+                    <!-- Sección Hero -->
+                    <div class="et_pb_section et_pb_with_background" style="background-image: url('https://via.placeholder.com/1920x800/2ea3f2/ffffff?text=Patagonia+Software+Libre');">
+                        <div class="et_pb_row">
+                            <div class="et_pb_column et_pb_column_4_4">
+                                <div class="et_pb_text et_pb_text_align_center">
+                                    <h1>Comunidad de Software Libre en la Patagonia</h1>
+                                    <p>Promoviendo la libertad digital desde 2010</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección Destacados -->
+                    <div class="et_pb_section">
+                        <div class="et_pb_row">
+                            <div class="et_pb_column et_pb_column_4_4">
+                                <div class="et_pb_text et_pb_text_align_center">
+                                    <h2>DESTACADOS</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="et_pb_row">
+                            <div class="et_pb_column et_pb_column_3_5">
+                                <div class="et_pb_blog">
+                                    <article class="et_pb_post">
+                                        <a href="#" class="entry-featured-image-url">
+                                            <img src="https://via.placeholder.com/800x500/2ea3f2/ffffff?text=Evento+Anual" alt="Evento Anual" />
+                                        </a>
+                                        <h3 class="entry-title">
+                                            <a href="#">Encuentro Anual de Software Libre Patagónico 2023</a>
+                                        </h3>
+                                        <p class="post-meta"><span class="published">Nov 15, 2023</span></p>
+                                        <div class="post-content">
+                                            <p>Un evento imperdible para todos los entusiastas del software libre en la región. Conferencias, talleres y networking con los principales referentes.</p>
+                                            <a href="#" class="more-link">leer más</a>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="et_pb_column et_pb_column_2_5">
+                                <div class="et_pb_blog">
+                                    <article class="et_pb_post">
+                                        <a href="#" class="entry-featured-image-url">
+                                            <img src="https://via.placeholder.com/400x250/2ea3f2/ffffff?text=Nuevo+Proyecto" alt="Nuevo Proyecto" />
+                                        </a>
+                                        <h3 class="entry-title">
+                                            <a href="#">Lanzamiento de PatagoniaOS: Nuestra distro regional</a>
+                                        </h3>
+                                        <p class="post-meta"><span class="published">Oct 30, 2023</span></p>
+                                        <div class="post-content">
+                                            <p>Una distribución Linux especialmente diseñada para las necesidades de usuarios y empresas de la Patagonia.</p>
+                                            <a href="#" class="more-link">leer más</a>
+                                        </div>
+                                    </article>
+                                    <article class="et_pb_post">
+                                        <a href="#" class="entry-featured-image-url">
+                                            <img src="https://via.placeholder.com/400x250/2ea3f2/ffffff?text=Taller+Gratuito" alt="Taller Gratuito" />
+                                        </a>
+                                        <h3 class="entry-title">
+                                            <a href="#">Taller de Introducción a GNU/Linux para principiantes</a>
+                                        </h3>
+                                        <p class="post-meta"><span class="published">Oct 26, 2023</span></p>
+                                        <div class="post-content">
+                                            <p>Aprende los conceptos básicos de GNU/Linux en nuestro taller gratuito del próximo sábado. No se requieren conocimientos previos.</p>
+                                            <a href="#" class="more-link">leer más</a>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección Líneas de Acción -->
+                    <div class="et_pb_section et_pb_bg_layout_dark">
+                        <div class="et_pb_row">
+                            <div class="et_pb_column et_pb_column_4_4">
+                                <div class="et_pb_text et_pb_text_align_center">
+                                    <h2>NUESTRAS LÍNEAS DE ACCIÓN</h2>
+                                    <p>Promovemos el software libre a través de diversas iniciativas en la región patagónica</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="et_pb_row">
+                            <div class="et_pb_column et_pb_column_1_4">
+                                <div class="et_pb_text et_pb_text_align_center">
+                                    <h3>EDUCACIÓN</h3>
+                                </div>
+                                <div class="et_pb_image">
+                                    <a href="#">
+                                        <img src="https://via.placeholder.com/300x200/2ea3f2/ffffff?text=Educación" alt="Educación" />
+                                    </a>
+                                </div>
+                                <div class="et_pb_text">
+                                    <p style="text-align: center;">Talleres, cursos y material educativo sobre software libre</p>
+                                </div>
+                                <div class="et_pb_button_module_wrapper et_pb_button_alignment_center">
+                                    <a class="et_pb_button" href="#">Explorar Educación</a>
+                                </div>
+                            </div>
+                            <div class="et_pb_column et_pb_column_1_4">
+                                <div class="et_pb_text et_pb_text_align_center">
+                                    <h3>DESARROLLO</h3>
+                                </div>
+                                <div class="et_pb_image">
+                                    <a href="#">
+                                        <img src="https://via.placeholder.com/300x200/2ea3f2/ffffff?text=Desarrollo" alt="Desarrollo" />
+                                    </a>
+                                </div>
+                                <div class="et_pb_text">
+                                    <p style="text-align: center;">Proyectos de software libre para la comunidad patagónica</p>
+                                </div>
+                                <div class="et_pb_button_module_wrapper et_pb_button_alignment_center">
+                                    <a class="et_pb_button" href="#">Explorar Proyectos</a>
+                                </div>
+                            </div>
+                            <div class="et_pb_column et_pb_column_1_4">
+                                <div class="et_pb_text et_pb_text_align_center">
+                                    <h3>COMUNIDAD</h3>
+                                </div>
+                                <div class="et_pb_image">
+                                    <a href="#">
+                                        <img src="https://via.placeholder.com/300x200/2ea3f2/ffffff?text=Comunidad" alt="Comunidad" />
+                                    </a>
+                                </div>
+                                <div class="et_pb_text">
+                                    <p style="text-align: center;">Encuentros, eventos y grupos de usuarios</p>
+                                </div>
+                                <div class="et_pb_button_module_wrapper et_pb_button_alignment_center">
+                                    <a class="et_pb_button" href="#">Unirse a la Comunidad</a>
+                                </div>
+                            </div>
+                            <div class="et_pb_column et_pb_column_1_4">
+                                <div class="et_pb_text et_pb_text_align_center">
+                                    <h3>DOCUMENTACIÓN</h3>
+                                </div>
+                                <div class="et_pb_image">
+                                    <a href="#">
+                                        <img src="https://via.placeholder.com/300x200/2ea3f2/ffffff?text=Documentación" alt="Documentación" />
+                                    </a>
+                                </div>
+                                <div class="et_pb_text">
+                                    <p style="text-align: center;">Recursos, manuales y traducciones al español</p>
+                                </div>
+                                <div class="et_pb_button_module_wrapper et_pb_button_alignment_center">
+                                    <a class="et_pb_button" href="#">Explorar Recursos</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección Únete -->
+                    <div class="et_pb_section et_pb_with_background et_pb_bg_layout_dark" style="background-image: url('https://via.placeholder.com/1920x600/000000/2ea3f2?text=Únete+a+la+Comunidad');">
+                        <div class="et_pb_row">
+                            <div class="et_pb_column et_pb_column_4_4">
+                                <div class="et_pb_text et_pb_text_align_center">
+                                    <h2>¿QUÉ ESTÁS ESPERANDO?</h2>
+                                    <p>Únete a nuestra comunidad y contribuye al software libre en la Patagonia</p>
+                                </div>
+                                <div class="et_pb_button_module_wrapper et_pb_button_alignment_center">
+                                    <a class="et_pb_button" href="#">UNIRME A LA COMUNIDAD</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección Contacto -->
+                    <div class="et_pb_section">
+                        <div class="et_pb_row">
+                            <div class="et_pb_column et_pb_column_2_5">
+                                <div class="et_pb_image">
+                                    <img src="https://via.placeholder.com/500x400/2ea3f2/ffffff?text=Contacto" alt="Contacto" />
+                                </div>
+                            </div>
+                            <div class="et_pb_column et_pb_column_3_5">
+                                <div class="et_pb_text">
+                                    <h2>CONTÁCTANOS</h2>
+                                    <p>¿Tienes preguntas sobre software libre? ¿Quieres colaborar con nuestros proyectos? ¿Organizar un evento en tu ciudad? ¡Escríbenos!</p>
+                                    <form class="et_pb_contact_form clearfix">
+                                        <p class="et_pb_contact_field">
+                                            <label for="name">Nombre</label>
+                                            <input type="text" id="name" class="input" placeholder="Nombre">
+                                        </p>
+                                        <p class="et_pb_contact_field">
+                                            <label for="email">Correo electrónico</label>
+                                            <input type="email" id="email" class="input" placeholder="Correo electrónico">
+                                        </p>
+                                        <p class="et_pb_contact_field">
+                                            <label for="message">Mensaje</label>
+                                            <textarea id="message" class="input" placeholder="Mensaje"></textarea>
+                                        </p>
+                                        <button type="submit" class="et_pb_button">Enviar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <footer id="main-footer">
+            <div class="container">
+                <div id="footer-widgets" class="clearfix">
+                    <div class="footer-widget">
+                        <h4>ENLACES RÁPIDOS</h4>
+                        <ul>
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Comunidad</a></li>
+                            <li><a href="#">Proyectos</a></li>
+                            <li><a href="#">Eventos</a></li>
+                            <li><a href="#">Recursos</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-widget">
+                        <h4>PROYECTOS</h4>
+                        <ul>
+                            <li><a href="#">PatagoniaOS</a></li>
+                            <li><a href="#">Documentación</a></li>
+                            <li><a href="#">Traducciones</a></li>
+                            <li><a href="#">Foros</a></li>
+                            <li><a href="#">Wiki</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-widget">
+                        <h4>CONTACTO</h4>
+                        <ul>
+                            <li>Email: info@patagoniasoftwarelibre.org</li>
+                            <li>Telegram: @PatagoniaSL</li>
+                            <li>Matrix: #patagonia-software-libre</li>
+                        </ul>
+                    </div>
+                    <div class="footer-widget">
+                        <h4>SÍGUENOS</h4>
+                        <ul>
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">Mastodon</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="footer-bottom">
+                    <p>Patagonia Software Libre &copy; 2023 - Promoviendo la libertad digital en la Patagonia</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Script simple para animaciones al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.et_animated');
+            
+            function checkScroll() {
+                animatedElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('et-waypoint');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Verificar elementos visibles al cargar la página
+        });
+    </script>
+</body>
+</html>
